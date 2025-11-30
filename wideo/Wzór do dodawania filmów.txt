@@ -1,0 +1,20 @@
+Dodajemy na dole w sekcji z ID z Youtybe
+    </style>
+</head>
+<body>
+Pod zapisanymi filmami.
+
+<div class="video-wrapper">
+
+                <div class="video-container">
+                    <a href="https://www.youtube.com/watch?v=ID_FILMU_Z_YOUTUBE" target="_blank">
+                        <img src="https://img.youtube.com/vi/ID_FILMU_Z_YOUTUBE/mqdefault.jpg" alt="Miniatura Filmu wpisać tytuł" class="video-thumbnail">
+                    </a>
+                </div>
+                
+                <div class="video-info">
+                    <h2>wpisać tytuł filmu</h2>
+                    </div>
+
+            </div>
+
