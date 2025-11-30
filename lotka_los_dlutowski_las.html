@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELEGACJA EZG - LOTKA ŁOŚ Z DŁUTOWSKIEGO LASU</title>
+    <style> 
+        /* GŁÓWNE STYLOWANIE */
+        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 0; }
+        .content { max-width: 1000px; margin: 20px auto; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #8B4513; text-align: center; font-size: 2.5em; } /* Brązowy kolor dla Lotek */
+        
+        .back-buttons { text-align: center; margin: 20px 0; }
+        .btn-back { background-color: #1976D2; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; }
+
+        /* GALERIA (2 zdjęcia w linii) */
+        .gallery { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 15px; 
+            padding: 15px; 
+        }
+        .gallery-item { 
+            /* Brak żółtej ramki zgodnie z prośbą */
+            max-width: 45%; 
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        /* MODAL (Okno powiększenia) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+        }
+        
+        /* ROZMIAR POWIĘKSZONEGO ZDJĘCIA */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%; 
+            max-width: 1100px; 
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>LOTKA ŁOŚ Z DŁUTOWSKIEGO LASU</h1> 
+        
+        <div class="back-buttons">
+            <a href="nasze_lotki.html" class="btn-back">&larr; POWRÓT DO LISTY LOTEK</a>
+            <a href="index.html" class="btn-back">&larr; POWRÓT NA GŁÓWNĄ</a>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_1.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_1.jpg" alt="Łoś 1"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_2.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_2.jpg" alt="Łoś 2"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_3.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_3.jpg" alt="Łoś 3"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_4.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_4.jpg" alt="Łoś 4"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_5.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_5.jpg" alt="Łoś 5"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_6.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_6.jpg" alt="Łoś 6"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_7.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_7.jpg" alt="Łoś 7"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_8.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_8.jpg" alt="Łoś 8"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_9.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_9.jpg" alt="Łoś 9"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_10.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_10.jpg" alt="Łoś 10"></div>
+            <div class="gallery-item" onclick="showModal('images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_11.jpg')"><img src="images/Lotka łoś z Dłutowskiego Lasu/zdjecie_los_11.jpg" alt="Łoś 11"></div>
+        </div>
+        
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+
+        function showModal(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+          }
+        
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+</body>
+</html>

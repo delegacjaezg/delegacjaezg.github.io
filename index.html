@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELEGACJA EZG - Strona Główna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="content">
+
+            <header class="header">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Logo Delegacja EZG">
+                </div>
+                <h1>DELEGACJA EZG</h1>
+            </header>
+
+            <div class="description-box">
+                <p>
+                    **Grupa motocyklowa** <strong>DELEGACJA EZG: Zgierz i okolice</strong>: Tu, gdzie każda podróż jest epicka! 
+                    <br>
+                    Zaczynaliśmy od wspaniałych, zadziornych <strong>125-tek</strong>, które są duszą naszej ekipy!
+                    <br>
+                    Ale u nas panuje totalna wolność: czy masz pod bakiem małego potwora, 
+                    czy ryczącego V-Twina z wyższej ligi – <strong>jesteś mile widziany!</strong> <br>
+                    Liczy się benzyna we krwi, wolność i dobry humor. <strong>LwG! ✌️</strong>
+                </p>
+            </div>
+
+            <div class="main-image">
+                <img src="images/zdjecie_grupy.jpg" alt="Duże zdjęcie grupy Delegacja EZG">
+            </div>
+
+            <div class="nav-buttons">
+                <a href="galeria.html" class="btn-gallery">GALERIA ZDJĘĆ</a>
+                <a href="wideo.html" class="btn-video">FILMY WIDEO</a>
+            </div>
+
+            <div class="komunikator-container">
+    <h2>CZATROL EZG 💬</h2>
+    <textarea id="komunikatorInput" placeholder="Wpisz ważną wiadomość lub ogłoszenie..."></textarea>
+    <button onclick="zapiszKomunikator()">ZAPISZ WIADOMOŚĆ</button>
+    <div id="komunikatorOutput">
+        </div>
+</div>
+
+        </div> 
+        <footer class="footer-images">
+            <img src="images/motor1.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor2.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor3.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor4.jpg" alt="Zdjęcie Motocykla"> 
+            <img src="images/motor5.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor6.jpg" alt="Zdjęcie Motocykla">
+        </footer>
+    </div>
+
+    <script>
+    // KLUCZ, KTÓREGO UŻYJEMY DO ZAPISU W PRZEGLĄDARCE
+    const STORAGE_KEY = 'EZG_KOMUNIKATOR_MESSAGE';
+
+    // FUNKCJA ZAPISUJĄCA WIADOMOŚĆ
+    function zapiszKomunikator() {
+        const input = document.getElementById('komunikatorInput').value;
+        
+        // Zapisz w Local Storage
+        localStorage.setItem(STORAGE_KEY, input);
+        
+        // Wyświetl zapisaną wiadomość
+        wyswietlKomunikator(input);
+    }
+
+    // FUNKCJA WYŚWIETLAJĄCA WIADOMOŚĆ
+    function wyswietlKomunikator(message) {
+        document.getElementById('komunikatorOutput').innerText = message;
+    }
+
+    // FUNKCJA WCZYTUJĄCA WIADOMOŚĆ PRZY OTWARCIU STRONY
+    function wczytajKomunikator() {
+        const zapisanaWiadomosc = localStorage.getItem(STORAGE_KEY);
+        if (zapisanaWiadomosc) {
+            // Wypełnij pole tekstowe i wyświetl wiadomość
+            document.getElementById('komunikatorInput').value = zapisanaWiadomosc;
+            wyswietlKomunikator(zapisanaWiadomosc);
+        } else {
+            // Jeśli puste, wyświetl domyślny komunikat
+            wyswietlKomunikator('Aktualnie brak ważnych ogłoszeń. Wpisz wiadomość i naciśnij ZAPISZ.');
+        }
+    }
+
+    // Uruchom wczytywanie po załadowaniu strony
+    window.onload = wczytajKomunikator;
+</script>
+
+    </body>
+</html>

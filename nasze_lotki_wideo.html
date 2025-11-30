@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELEGACJA EZG - NASZE LOTKI WIDEO</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style dla nagłówków i ogólne */
+        .header h1 { color: #FF9800; }
+        
+        /* ####################################### */
+        /* UKŁAD OBOK SIEBIE (FLEXBOX) */
+        /* ####################################### */
+        .video-wrapper {
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; /* Wyrównuje film i tytuł do góry */
+            margin: 40px auto;
+            max-width: 900px; 
+            gap: 30px; 
+            padding: 20px 0; 
+            border-bottom: 1px solid #ddd; 
+        }
+
+        .video-info {
+            flex-basis: 500px; 
+            padding-top: 15px;
+            text-align: left;
+        }
+
+        .video-info h2 {
+            color: #FF9800; 
+            margin-top: 0; 
+            font-size: 1.5em; 
+        }
+        
+        /* ####################################### */
+        /* KONTENER WIDEO (RAMKA KWADRATOWA 250PX) */
+        /* ####################################### */
+        .video-container {
+            position: relative;
+            width: 250px; 
+            height: 250px; 
+            overflow: hidden;
+            margin: 0; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            border: 5px solid #FF9800; 
+        }
+
+        /* Styl dla linku na miniaturze */
+        .video-container a {
+            display: block; 
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Efekt po najechaniu na miniaturę */
+        .video-container a:hover .video-thumbnail {
+            opacity: 0.8;
+        }
+
+        /* Media queries dla responsywności (np. na telefonach) */
+        @media (max-width: 850px) {
+            .video-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                max-width: 500px;
+            }
+            .video-info {
+                text-align: center;
+                flex-basis: auto;
+            }
+            .video-container {
+                width: 300px; 
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="content">
+
+            <header class="header">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Logo Delegacja EZG">
+                </div>
+                <h1>NASZE LOTKI WIDEO</h1> 
+            </header>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="wideo.html" class="btn-gallery" style="background-color: #1976D2; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    &larr; POWRÓT DO GALERII WIDEO
+                </a>
+            </div>
+
+            <div class="video-wrapper">
+                
+                <div class="video-container">
+                    <a href="https://www.youtube.com/watch?v=kC9B_rxohrE" target="_blank">
+                        <img src="https://img.youtube.com/vi/kC9B_rxohrE/mqdefault.jpg" alt="Miniatura filmu Nocna Lotka Delegacji EZG 2025" class="video-thumbnail">
+                    </a>
+                </div>
+                
+                <div class="video-info">
+                    <h2>Nocna Lotka Delegacji EZG 2025</h2>
+                </div>
+
+            </div>
+
+        </div> 
+        <footer class="footer-images">
+            <img src="images/motor1.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor2.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor3.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor4.jpg" alt="Zdjęcie Motocykla"> 
+            <img src="images/motor5.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor6.jpg" alt="Zdjęcie Motocykla">
+        </footer>
+    </div>
+
+</body>
+</html>

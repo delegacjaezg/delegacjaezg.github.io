@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELEGACJA EZG - GALERIA ZDJĘĆ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ======================================================= */
+        /* STYLIZACJA NAGŁÓWKÓW (BEZ ZMIAN) */
+        /* ======================================================= */
+        
+        .header .h1-green {
+            color: #4CAF50 !important; 
+        }
+
+        .h2-gallery {
+            text-align: center; 
+            color: #4CAF50 !important; 
+            margin-top: 40px; 
+            font-family: 'Times New Roman', Times, serif; 
+            font-weight: 900; 
+            text-shadow: 
+                -1px -1px 0 #000, 
+                 1px -1px 0 #000, 
+                -1px 1px 0 #000,   
+                 1px 1px 0 #000;
+        }
+
+        /* ======================================================= */
+        /* NOWE STYLE: FOLDERY JAKO ZDJĘCIA W TLE */
+        /* ======================================================= */
+        
+        .folder-list {
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            padding: 50px 0;
+            flex-wrap: wrap; 
+        }
+        
+        .folder-link {
+            text-decoration: none;
+            /* Używamy białego koloru, bo tłem będzie zdjęcie */
+            color: white; 
+            font-size: 2.2em; /* Powiększony tekst */
+            font-weight: 900;
+            text-align: center;
+            padding: 20px;
+            width: 300px; 
+            height: 150px;
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            border: 4px solid #FFD700; /* Złota ramka */
+            border-radius: 10px;
+            transition: transform 0.3s;
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
+            
+            /* Podstawowe ustawienia tła obrazkowego */
+            background-size: cover;
+            background-position: center;
+            /* Cień na tekście, żeby był czytelny na każdym zdjęciu */
+            text-shadow: 0 0 8px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1);
+        }
+        
+        .folder-link:hover {
+            transform: scale(1.05); /* Lekkie powiększenie po najechaniu */
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* INDYWIDUALNE TŁA DLA KAŻDEGO FOLDERA */
+        .folder-zloty {
+            background-image: url('images/tlo_zloty.jpg');
+        }
+        
+        .folder-lotki {
+            background-image: url('images/tlo_lotki.jpg');
+        }
+        
+        .folder-wrzutki {
+            background-image: url('images/tlo_wrzutki.jpg');
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="content">
+
+            <header class="header">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Logo Delegacja EZG">
+                </div>
+                <h1 class="h1-green">GALERIA ZDJĘĆ</h1> 
+            </header>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="index.html" class="btn-gallery" style="background-color: #1976D2; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    &larr; POWRÓT NA STRONĘ GŁÓWNĄ
+                </a>
+            </div>
+
+            <h2 class="h2-gallery">NASZE WSPÓLNE CHWILE Z DROGI</h2>
+            
+            <div class="folder-list">
+            
+                <a href="zloty.html" class="folder-link folder-zloty">
+                    ZLOTY
+                </a>
+
+                <a href="nasze_lotki.html" class="folder-link folder-lotki">
+                    NASZE LOTKI
+                </a>
+
+                <a href="wrzutki.html" class="folder-link folder-wrzutki">
+                    WRZUTKI
+                </a>
+                
+            </div>
+
+</div>
+        </div> 
+        <footer class="footer-images">
+            <img src="images/motor1.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor2.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor3.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor4.jpg" alt="Zdjęcie Motocykla"> 
+            <img src="images/motor5.jpg" alt="Zdjęcie Motocykla">
+            <img src="images/motor6.jpg" alt="Zdjęcie Motocykla">
+        </footer>
+    </div>
+
+</body>
+</html>
