@@ -214,3 +214,49 @@ body {
     max-height: 200px; /* Maksymalna wysokość widocznego obszaru */
     overflow-y: auto; /* Włącz suwak pionowy, gdy tekst przekroczy max-height */
 }
+
+/* ======================================================= */
+/* POPRAWKI DLA TELEFONÓW (RESPONSYWNOŚĆ) */
+/* ======================================================= */
+
+/* Zmiana właściwości tła dla ekranów mniejszych niż 768px (telefony i tablety) */
+@media screen and (max-width: 768px) {
+    body {
+        /* WŁAŚCIWA POPRAWKA: Tło nie jest już "fixed" (stałe) na telefonach, co eliminuje błąd przesunięcia */
+        background-attachment: scroll !important;
+        background-position: center center; /* Dodajemy, by upewnić się, że tło jest zawsze wyśrodkowane */
+    }
+    
+    /* Zmniejszenie rozmiaru logo i nagłówka dla telefonów, żeby się zmieściły */
+    .header {
+        padding: 10px 15px;
+        flex-direction: column; /* Układa elementy jeden pod drugim */
+        text-align: center;
+    }
+    
+    .header .logo img {
+        height: 100px; /* Mniejsze logo */
+    }
+    
+    .header h1 {
+        font-size: 3em; /* Mniejszy tytuł */
+        margin-top: 10px;
+    }
+
+    /* Zmiana układu przycisków w pionie na telefonie */
+    .nav-buttons {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-buttons a {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Ukrycie stopki ze zdjęciami, bo może zabierać zbyt dużo miejsca na telefonie */
+    .footer-images {
+        display: none;
+    }
+}
